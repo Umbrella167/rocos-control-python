@@ -5,7 +5,7 @@ TRANS_FEEDBACK_SIZE = 20
 
 
 
-class HU_Command:
+class Command:
     def __init__(self):
         self.power = 0.0
         self.dribble = 0.0
@@ -31,7 +31,7 @@ class RadioPacket:
         self.transmitPacket = bytearray(25)  # Initialize with the correct size
 
     def encode(self):
-        HU_CMD = HU_Command()
+        HU_CMD = Command()
 
         HU_CMD.valid = True
         HU_CMD.id = self.robotID
