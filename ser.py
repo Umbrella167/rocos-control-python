@@ -1,10 +1,10 @@
 import serial
-import pocket
+import packet
 import time
 
 if __name__ == "__main__":
 
-    ser = serial.Serial('/dev/ttyUSB0', 115200)
+    ser = serial.Serial('COM6', 115200)
 
     if ser.is_open:
         print('Open')
@@ -12,7 +12,7 @@ if __name__ == "__main__":
         print('Close')
         exit()
 
-    ser.write(pocket.start_packet1)
+    ser.write(packet.start_packet1)
     ser.flush()
 
     start_time = time.time()
@@ -23,11 +23,10 @@ if __name__ == "__main__":
     # Send second start packet
 
     time.sleep(0.1)
-    ser.write(pocket.start_packet2)
+    ser.write(packet.start_packet2)
     ser.flush()
-    print(pocket.start_packet2)
 
-    send_comd = pocket.RadioPacket()
+    send_comd = packet.RadioPacket()
     send_comd.robotID = 2
     send_comd.velX = 50
     send_comd.velY = 0.0

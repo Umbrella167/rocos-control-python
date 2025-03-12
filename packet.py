@@ -2,9 +2,6 @@ from crc8 import CCrc8
 TRANSMIT_PACKET_SIZE = 25
 TRANS_FEEDBACK_SIZE = 20
 
-
-
-
 class Command:
     def __init__(self):
         self.power = 0.0
@@ -101,9 +98,6 @@ class RadioPacket:
     def create_start_packet(self):
         self.transmitPacket = bytearray((TRANSMIT_PACKET_SIZE))
         
-# print(" ".join(f"{byte:02X}" for byte in pockt.transmitPacket))
-
-
 
 start_packet1 = bytearray((TRANSMIT_PACKET_SIZE))
 start_packet1[0] = 0xFF
